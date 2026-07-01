@@ -1,3 +1,6 @@
+#Basics of python programming
+#part1
+
 from logging import lastResort
 from operator import truediv
 
@@ -135,7 +138,7 @@ def factors(a):
 
 
 def prime_number_checker(a):
-    is_prime == True
+    is_prime = True
 
     for i in range(2,a):
 
@@ -290,7 +293,6 @@ def function60(s):
 
     for ch in s:
         hash_arr[ord(ch)-ord('a')]+=1
-01
     for i in range(26):
         if hash_arr[i]>0:
             print(chr(ord('a')+i)," : ",hash_arr[i])
@@ -309,7 +311,7 @@ def function61(arr):
 
     for key,value in hash_arr.items():
         print(key,value)
-        key value pair___
+       
 
 
 
@@ -359,7 +361,7 @@ def function60_checkprimes(A):
         else:
             is_prime=True
 
-    if is_prime=True:
+    if is_prime==True:
         return A,"is a prime number"
     else:
         return A,"is not a prime numeber"
