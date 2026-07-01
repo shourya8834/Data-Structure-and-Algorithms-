@@ -14,8 +14,7 @@ def function(arr):
 
 print(function([1,6,5,9,3,4,9,1,3]))
 
-# time complexity--
-# bigo of n)----      o(nxn)----
+
 
 
 
@@ -44,3 +43,56 @@ def function3(arr):
     return arr
 
 print(function3([1,6,5,9,3,4,9,1,3]))
+
+
+
+#sorting technique 4 - merge sort(best time complexity)
+
+class Solution:
+    def merge(self, arr, low, mid, high):
+        temp = []
+        left = low
+        right = mid + 1
+
+        # Merge the two sorted halves
+        while left <= mid and right <= high:
+            if arr[left] <= arr[right]:
+                temp.append(arr[left])
+                left += 1
+            else:
+                temp.append(arr[right])
+                right += 1
+
+        # Copy remaining elements from left half
+        while left <= mid:
+            temp.append(arr[left])
+            left += 1
+
+        # Copy remaining elements from right half
+        while right <= high:
+            temp.append(arr[right])
+            right += 1
+
+        # Copy the merged array back into the original array
+        for i in range(low, high + 1):
+            arr[i] = temp[i - low]
+
+    def mergesort(self, arr, low, high):
+        if low >= high:
+            return
+
+        mid = (low + high) // 2
+
+        self.mergesort(arr, low, mid)
+        self.mergesort(arr, mid + 1, high)
+        self.merge(arr, low, mid, high)
+
+
+A = Solution()
+
+arr = [1, 6, 5, 9, 3, 4, 9, 1, 3]
+
+A.mergesort(arr, 0, len(arr) - 1)
+
+print(arr)
+
