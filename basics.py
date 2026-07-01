@@ -188,7 +188,6 @@ def function13(i,n):
     function13(i+1,n)
 
 
-
 # print linearly from B to 1
 def function14(i,n):
      if i<1:
