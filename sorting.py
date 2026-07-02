@@ -12,7 +12,7 @@ def function(arr):
 
     return arr
 
-print(function([1,6,5,9,3,4,9,1,3]))
+
 
 
 
@@ -28,7 +28,7 @@ def function1(arr):
 
     return arr
 
-print(function1([1,6,5,9,3,4,9,1,3]))
+
 
 # sorting technique 3 - insertion sort
 
@@ -42,7 +42,7 @@ def function3(arr):
 
     return arr
 
-print(function3([1,6,5,9,3,4,9,1,3]))
+
 
 
 
@@ -54,7 +54,7 @@ class Solution:
         left = low
         right = mid + 1
 
-        # Merge the two sorted halves
+       
         while left <= mid and right <= high:
             if arr[left] <= arr[right]:
                 temp.append(arr[left])
@@ -63,17 +63,17 @@ class Solution:
                 temp.append(arr[right])
                 right += 1
 
-        # Copy remaining elements from left half
+        
         while left <= mid:
             temp.append(arr[left])
             left += 1
 
-        # Copy remaining elements from right half
+       
         while right <= high:
             temp.append(arr[right])
             right += 1
 
-        # Copy the merged array back into the original array
+        
         for i in range(low, high + 1):
             arr[i] = temp[i - low]
 
@@ -88,11 +88,50 @@ class Solution:
         self.merge(arr, low, mid, high)
 
 
-A = Solution()
 
+
+
+# sorting technique 5 - quick sort
+
+class solution2:
+    def function1(self,arr,low,high):
+        pivot=arr[low]
+        i=low
+        j=high
+
+        while i<j:
+
+            while arr[i] <= pivot and i<high:
+                i+=1
+
+            while arr[j] > pivot and j>low:
+                    j-=1
+
+            if i<j:
+                arr[i],arr[j]=arr[j],arr[i]
+                        
+
+        arr[low],arr[j]=arr[j],arr[low]
+        return j
+                    
+            
+
+            
+    def quicksort(self,arr,low,high):
+        if low>=high:
+            return
+        Pindex=self.function1(arr,low,high)
+        self.quicksort(arr,low,Pindex-1)
+        self.quicksort(arr,Pindex+1,high)
+
+
+B = solution2()
 arr = [1, 6, 5, 9, 3, 4, 9, 1, 3]
-
-A.mergesort(arr, 0, len(arr) - 1)
-
+B.quicksort(arr, 0, len(arr) - 1)
 print(arr)
+
+
+
+
+
 
